@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router';
 
 class MyNavbar extends Component {
+  state = {}
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   render(){
+    const { activeItem } = this.state
     return(
-       <Navbar collapseOnSelect fixedTop>
-         <Navbar.Header>
-           <Navbar.Brand>
-             <Link to="/">Fight</Link>
-             <Link to="/subscribe">Sub</Link>
-           </Navbar.Brand>
-           <Navbar.Toggle />
-         </Navbar.Header>
-         <Navbar.Collapse>
-           <Nav pullRight>
-             <NavItem eventKey={1} href="#">Login</NavItem>
-           </Nav>
-         </Navbar.Collapse>
-       </Navbar>
+      <Menu>
+        <Menu.Item
+          name='fight'
+          active={activeItem === 'fight'}
+          onClick={this.handleItemClick}
+        >
+          <Link to="/">Fight</Link>
+        </Menu.Item>
+        <Menu.Item
+          name='sub'
+          active={activeItem === 'sub'}
+          onClick={this.handleItemClick}
+        >
+          <Link to="/subscribe">Sub</Link>
+        </Menu.Item>
+      </Menu>
     );
   }
 }
