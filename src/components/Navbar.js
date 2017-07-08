@@ -9,7 +9,7 @@ class MyNavbar extends Component {
          <Navbar.Header>
            <Navbar.Brand>
              <Link to="/">Fight</Link>
-             <Link to="/subcribe">Sub</Link>
+             <Link to="/subscribe">Sub</Link>
            </Navbar.Brand>
            <Navbar.Toggle />
          </Navbar.Header>

@@ -11,7 +11,7 @@ const router = (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
             <IndexRoute component={FightsPage}></IndexRoute>
-            <Route path="/subcribe" component={SubcribePage}></Route>
+            <Route path="/subscribe" component={SubcribePage}></Route>
         </Route>
     </Router>
 );
