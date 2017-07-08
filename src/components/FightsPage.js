@@ -1,11 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import FighterInput from "./FighterInput";
 
 class FightsPage extends Component{
-    render() {
-        return (
-            <h2>FightsPage</h2>
-        );
-    }
+  constructor(props){
+    super(props)
+
+  }
+
+  render() {
+    return (
+      <div>
+        <FighterInput></FighterInput>
+        <FighterInput></FighterInput>
+      </div>
+    );
+  }
 }
 
 export default FightsPage;
