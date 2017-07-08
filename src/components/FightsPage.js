@@ -1,20 +1,59 @@
 import React, { Component } from "react";
 import FighterInput from "./FighterInput";
+import { Grid, Container, Button } from 'semantic-ui-react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+
+import * as action from '../actions';
 
 class FightsPage extends Component{
   constructor(props){
     super(props)
+    this.renderFightButton = this.renderFightButton.bind(this)
+  }
 
+  renderFightButton(){
+    return(
+      <Container>
+        <Grid centered>
+          <Grid.Row>
+            <Button negative>Fight</Button>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    )
   }
 
   render() {
     return (
-      <div>
-        <FighterInput></FighterInput>
-        <FighterInput></FighterInput>
-      </div>
+      <section>
+        <Container>
+          <Grid centered>
+            <Grid.Row>
+              <Grid.Column width={8}>
+                <FighterInput {...this.props} player={1}></FighterInput>
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <FighterInput {...this.props} player={2}></FighterInput>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
+        {this.props.data.length === 2 ? this.renderFightButton():``}
+      </section>
     );
   }
 }
 
-export default FightsPage;
+function mapStatetoProp(state, props){
+  console.log(state);
+  return {
+    data: state.fighterReducer
+  }
+}
+
+function mapDispathtoProps(dispatch){
+  return bindActionCreators(action, dispatch);
+}
+
+export default connect(mapStatetoProp, mapDispathtoProps)(FightsPage);

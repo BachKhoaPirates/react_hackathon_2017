@@ -6,14 +6,18 @@ import FightsPage from './components/FightsPage';
 import SubcribePage from './components/SubscribePage';
 import registerServiceWorker from './registerServiceWorker';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import store, {history} from './store';
+import {Provider} from 'react-redux';
 
 const router = (
-    <Router history={browserHistory}>
-        <Route path="/" component={App}>
-            <IndexRoute component={FightsPage}></IndexRoute>
-            <Route path="/subscribe" component={SubcribePage}></Route>
-        </Route>
-    </Router>
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={App}>
+                <IndexRoute component={FightsPage}></IndexRoute>
+                <Route path="/subscribe" component={SubcribePage}></Route>
+            </Route>
+        </Router>
+    </Provider>
 );
 
 ReactDOM.render(router, document.getElementById('root'));

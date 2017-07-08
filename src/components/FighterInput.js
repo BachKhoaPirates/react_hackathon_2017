@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import FighterInfo from "./FighterInfo"
-import {Button, Input} from "semantic-ui-react"
+import {Button, Input, Container} from "semantic-ui-react"
 
 
 class FighterInput extends Component {
@@ -10,27 +10,30 @@ class FighterInput extends Component {
   }
 
   getUserInfo = () => {
-    console.log(this.state.userInfo)
     this.state.userInfo = !this.state.userInfo
     this.setState(this.state)
+    if(this.props.player === 1){
+      this.props.player1LoadSuccess(1);
+    }
+    if(this.props.player === 2){
+      this.props.player2LoadSuccess(2);
+    }
   }
 
   render() {
     if(!this.state.userInfo){
       return (
-        <div>
-          <br/>
-          <br/>
+        <Container>
           <h1>Player 1</h1>
             <Input type="text" icon="search" placeholder='Search...' ref="txt" />
             <br/>
             <br/>
             <Button basic color="black" onClick={this.getUserInfo.bind(this)}>Submit</Button>
-        </div>
+        </Container>
       )
     }
     return (
-      <FighterInfo></FighterInfo>
+      <FighterInfo {...this.props}></FighterInfo>
     )
   }
 }
