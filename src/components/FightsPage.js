@@ -31,15 +31,15 @@ class FightsPage extends Component{
           <Grid centered>
             <Grid.Row>
               <Grid.Column width={8}>
-                <FighterInput {...this.props} player={1}></FighterInput>
+                <FighterInput {...this.props}></FighterInput>
               </Grid.Column>
               <Grid.Column width={8}>
-                <FighterInput {...this.props} player={2}></FighterInput>
+                <FighterInput {...this.props}></FighterInput>
               </Grid.Column>
             </Grid.Row>
           </Grid>
         </Container>
-        {this.props.data.length === 2 ? this.renderFightButton():``}
+        {this.props.data.num === 2 ? this.renderFightButton():``}
       </section>
     );
   }

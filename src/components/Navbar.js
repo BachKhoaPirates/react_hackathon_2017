@@ -24,6 +24,13 @@ class MyNavbar extends Component {
         >
           <Link to="/subscribe">Sub</Link>
         </Menu.Item>
+        <Menu.Item
+          name='login'
+          active={activeItem === 'login'}
+          onClick={this.handleItemClick}
+        >
+          <Link to="/login">Login</Link>
+        </Menu.Item>
       </Menu>
     );
   }

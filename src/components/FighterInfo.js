@@ -12,13 +12,7 @@ class FighterInfo extends Component {
   resetUserInput = () => {
     this.state.userInput = !this.state.userInput
     this.setState(this.state)
-    // if(this.props.player ===1){
-    //   this.props.player1LoadSuccess();
-    // }
-    
-    // if(this.props.player ===2){
-    //   this.props.player2LoadSuccess();
-    // }
+    this.props.removePlayer();
   }
 
   render(){
@@ -32,7 +26,7 @@ class FighterInfo extends Component {
       )
     }
     return (
-      <FighterInput></FighterInput>
+      <FighterInput {...this.props}></FighterInput>
     )
   }
 }

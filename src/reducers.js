@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-function fighterReducer(state = [], action){
+const defaultState = {num:0}
+
+function fighterReducer(state = defaultState, action){
     switch(action.type){
-        case 'PLAYER1_SUCCESS':
-            return [...state, action.player]
-        case 'PLAYER2_SUCCESS':
-            return [...state, action.player]    
+        case 'ADD_PLAYER':
+            return {...state, num: state.num + 1}  
+        case 'REMOVE_PLAYER':
+            return {...state, num: state.num - 1 }
         default:
             return state;    
     }

@@ -12,19 +12,14 @@ class FighterInput extends Component {
   getUserInfo = () => {
     this.state.userInfo = !this.state.userInfo
     this.setState(this.state)
-    if(this.props.player === 1){
-      this.props.player1LoadSuccess(1);
-    }
-    if(this.props.player === 2){
-      this.props.player2LoadSuccess(2);
-    }
+    this.props.addPlayer();
   }
 
   render() {
     if(!this.state.userInfo){
       return (
         <Container>
-          <h1>Player 1</h1>
+          <h1>Player </h1>
             <Input type="text" icon="search" placeholder='Search...' ref="txt" />
             <br/>
             <br/>
