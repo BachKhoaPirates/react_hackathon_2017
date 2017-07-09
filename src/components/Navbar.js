@@ -9,7 +9,7 @@ class MyNavbar extends Component {
   render(){
     const { activeItem } = this.state
     return(
-      <Menu>
+      <Menu pointing secondary color='red'>
         <Menu.Item
           name='fight'
           active={activeItem === 'fight'}
@@ -24,13 +24,15 @@ class MyNavbar extends Component {
         >
           <Link to="/subscribe">Sub</Link>
         </Menu.Item>
-        <Menu.Item
-          name='login'
-          active={activeItem === 'login'}
-          onClick={this.handleItemClick}
-        >
-          <Link to="/login">Login</Link>
-        </Menu.Item>
+        <Menu.Menu position='right'>
+          <Menu.Item
+            name='login'
+            active={activeItem === 'login'}
+            onClick={this.handleItemClick}
+          >
+            <Link to="/login">Login</Link>
+          </Menu.Item>
+        </Menu.Menu>
       </Menu>
     );
   }
